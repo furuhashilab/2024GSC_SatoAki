@@ -1,6 +1,17 @@
-# United Nations Vector Tile Toolkit（UNVT）を用いた3次元空間インデックスライブラリの構築とRaspberry Piへの実装
+# satoaki-2024Seminar-shortpresentation
+2024年度ゼミ論「United Nations Vector Tile Toolkit（UNVT）を用いた3次元空間インデックスライブラリの構築とRaspberry Piへの実装」
 
-## 概論
+青山学院大学 地球社会共生学部 地球社会共生学科
+
+佐藤　愛妃 /　Aki Sato
+
+学生番号 1A122083
+
+指導教員 古橋大地 教授
+
+©︎Furuhashi Laboratory/Aki Sato, CC BY 4.0
+
+# 概論
 
 Pythonライブラリで3次元空間ID空間インデックスを構築
 

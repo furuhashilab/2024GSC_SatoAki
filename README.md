@@ -1,8 +1,5 @@
 # United Nations Vector Tile Toolkit（UNVT）を用いた3次元空間インデックスライブラリの構築とRaspberry Piへの実装
 
-
-
-# テーマ
 ## 概論
 
 Pythonライブラリで3次元空間ID空間インデックスを構築

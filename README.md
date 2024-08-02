@@ -11,14 +11,19 @@
 
 ©︎Furuhashi Laboratory/Aki Sato, CC BY 4.0
 
-# Abstract
+## Abstract
 
 ## Introduction
 
 Pythonライブラリで3次元空間ID空間インデックスを構築
 
-## 先行研究/先行事例
+## Methods
 
+## Results
+
+## Discussion
+
+## Conclusion
 
 ## 参考文献
 

@@ -12,11 +12,10 @@
 ©︎Furuhashi Laboratory/Aki Sato, CC BY 4.0
 
 ## Abstract
-このプロジェクトでは、United Nations Vector Tile Toolkit (UNVT)を使用して3次元ボクセルにユニークIDを生成する空間インデックスライブラリを構築し、Raspberry Piでの実装を行う。これにより、従来の2次元地図やアナログ地図よりも詳細な地理空間データ管理とオフラインでの地図表示が可能となる。
+このプロジェクトでは、United Nations Vector Tile Toolkit (UNVT)を使用して3次元ボクセルにユニークIDを生成する空間インデックスライブラリを構築し、Raspberry Piでの実装を行う。これにより、従来の2次元地図やアナログ地図よりも詳細な地理空間データ管理とオフラインでの地図表示が可能となる。特筆する点は、空間定義にポリゴンとして3次元ボクセルに紐づいた3次元空間IDを使用する点である。
 
 ## Introduction
-
-Pythonライブラリで3次元空間ID空間インデックスを構築
+Pythonライブラリで3次元空間IDの空間インデックスを構築
 
 ## Methods
 

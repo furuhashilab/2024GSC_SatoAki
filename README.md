@@ -1,4 +1,4 @@
-# Mt.-Fuji-Challenge-Seminar-Thesis
+# 3次元空間ID
 
 # テーマ
 ## 概論

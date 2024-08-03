@@ -84,3 +84,4 @@ United Nations Vector Tile Toolkitを活用して、Raspberry Pi上で動作す�
 
 1. **OSGeo Live**: [公式サイト](https://live.osgeo.org/)
 2. **OpenMapKit**: [GitHubリポジトリ](https://github.com/AmericanRedCross/OpenMapKit)
+3. **PLATEAUのための空間ID生成ツール**:[PLATEAUのための空間ID生成ツール](https://github.com/Project-PLATEAU/PLATEAU-generator-for-spatialid)

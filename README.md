@@ -1,5 +1,5 @@
 # satoaki-2024Seminar-shortpresentation
-2024年度ゼミ論「」
+2024年度ゼミ論構想発表「」
 
 青山学院大学 地球社会共生学部 地球社会共生学科
 

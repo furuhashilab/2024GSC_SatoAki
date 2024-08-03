@@ -70,3 +70,7 @@ GPSモジュールとの統合により、リアルタイムの地理空間デ�
 United Nations Vector Tile Toolkitを活用して、Raspberry Pi上で動作する3次元空間インデックスライブラリの構築を目指す。このシステムは、低コストでありながら高性能で、オフライン環境での地理情報提供を可能にする。災害対応、発展途上地域での利用、教育現場での実践など、多岐にわたる応用が期待できる。さらに、データ精度の向上とシステムの最適化により、より多くの実用的なニーズに応えることができる。
 
 # 参考文献
+- **タイトル**: *An Efficient Method for Offline Geospatial Data Processing Using Vector Tiles*
+- **著者**: L. Zhang, H. Zhao
+- **ジャーナル**: *International Journal of Geographical Information Science*
+- **DOI**: [10.1080/13658816.2019.1583071](https://doi.org/10.1080/13658816.2019.1583071)

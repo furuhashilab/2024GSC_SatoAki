@@ -79,3 +79,8 @@ United Nations Vector Tile Toolkitを活用して、Raspberry Pi上で動作す�
 - **著者**: J. Smith, K. Johnson
 - **ジャーナル**: *Computers, Environment and Urban Systems*
 - **DOI**: [10.1016/j.compenvurbsys.2020.101469](https://doi.org/10.1016/j.compenvurbsys.2020.101469)
+
+### プロジェクト
+
+1. **OSGeo Live**: [公式サイト](https://live.osgeo.org/)
+2. **OpenMapKit**: [GitHubリポジトリ](https://github.com/AmericanRedCross/OpenMapKit)

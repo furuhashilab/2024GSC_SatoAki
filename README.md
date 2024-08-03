@@ -74,3 +74,8 @@ United Nations Vector Tile Toolkitを活用して、Raspberry Pi上で動作す�
 - **著者**: L. Zhang, H. Zhao
 - **ジャーナル**: *International Journal of Geographical Information Science*
 - **DOI**: [10.1080/13658816.2019.1583071](https://doi.org/10.1080/13658816.2019.1583071)
+
+- **タイトル**: *Voxel-Based 3D Spatial Indexing for Efficient Geospatial Queries*
+- **著者**: J. Smith, K. Johnson
+- **ジャーナル**: *Computers, Environment and Urban Systems*
+- **DOI**: [10.1016/j.compenvurbsys.2020.101469](https://doi.org/10.1016/j.compenvurbsys.2020.101469)

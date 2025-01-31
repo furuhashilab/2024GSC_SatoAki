@@ -1,5 +1,5 @@
 # satoaki-2024Seminar-shortpresentation
-2024年度ゼミ論構想発表「山岳地帯対応の3Dボクセル地図システム: Raspberry PiとUNVTの応用」
+2024年度ゼミ論最終発表
 
 青山学院大学 地球社会共生学部 地球社会共生学科
 

@@ -63,15 +63,15 @@ MIERUNE. (2023). QGISの3Dビューを活用してみよう [https://www.mierune
 ![スクリーンショット 2025-02-01 143646](https://github.com/user-attachments/assets/812c11d0-4116-48cf-91e4-68204d8b1da0)
 途中、5m*5mメッシュの予定でしたが、10m*10mになってしまっていたので、コード使って5mにしました。
 
-
 3. **各ボクセルにハッシュIDを生成**
-  
-
 4. **GeoJSONとJSONの2種類のデータを保存**
+![スクリーンショット 2025-02-01 182050](https://github.com/user-attachments/assets/0260fb08-64af-4728-a7dc-33023c1bac24)
 
 5. **FastAPIでボクセル検索APIを構築**
+  ![スクリーンショット 2025-02-01 182556](https://github.com/user-attachments/assets/27359e0d-6157-45ac-bf0d-bc509994ad6f)
 
 6. **ローカル環境でAPIをテスト**
+![スクリーンショット 2025-02-01 113943](https://github.com/user-attachments/assets/abe7646a-654d-4e87-98af-51033c64c702)
 
 7. **3Dボクセル、STL出力**
  ```
@@ -293,7 +293,31 @@ def search_voxel(x: int, y: int, z: float):
 5. 3Dvoxelデータ：STL（メッシュ）: 3d_voxel_mesh.stl
    3Dモデル、3Dプリント、MeshLabやBlender
 
+おまけ
+富士山の標高を大まかにプロット
+![スクリーンショット 2025-02-01 183040](https://github.com/user-attachments/assets/f9262640-df85-4221-8748-3a515043431f)
 
+---
+```python
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# 3Dプロットの準備
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# (X, Y, Z) の座標を取得
+x_vals, y_vals, z_vals, sizes = zip(*[(x, y, z, size) for _, x, y, z, size in voxel_data_with_id])
+
+# 3Dボクセルの可視化
+ax.scatter(x_vals, y_vals, z_vals, s=5, c=z_vals, cmap='terrain')
+
+ax.set_xlabel('X (m)')
+ax.set_ylabel('Y (m)')
+ax.set_zlabel('Height (m)')
+
+plt.show()
+---
 
 ---
 

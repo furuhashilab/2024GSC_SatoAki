@@ -290,7 +290,7 @@ def search_voxel(x: int, y: int, z: float):
 
 ---
 
-🚀 **次のステップ → SQLiteとRaspberry Piへの展開！**
+🚀 **次のステップ → Raspberry Piへの展開！**
 
 
 # 参考文献

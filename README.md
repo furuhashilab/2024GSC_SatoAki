@@ -11,63 +11,185 @@
 
 ©︎Furuhashi Laboratory/Aki Sato, CC BY 4.0
 
-## Abstract
-XYZタイルに標高データを加えて生成した3次元ボクセルとそれに紐づくユニークID（3次元空間ID）を管理するための空間インデックスライブラリを構築する。また、最終的にはUnited Nations Vector Tile Toolkit（UNVT）を用いたRaspberry Piへの実装を行う。特筆する点は、空間定義にポリゴンとして3次元ボクセルとボクセルに紐づいた3次元空間IDを使用する点である。これにより、従来の2次元地図やアナログ地図よりも詳細な地理空間データ管理とオフラインでの地図表示が可能となる。このプロジェクトでは、山岳地帯などの環境未整備かつ通信環境が整っていない場所での使用を想定している。その際、既存のUNVT-portableを参考に進めていきたい。
+了解！**3Dボクセル生成のプロセス**もREADMEにしっかり入れるね！特に、どんな苦労があったか、どうやって修正したかも入れて、ちゃんと記録を残そう。以下、**修正後のREADME.md**です。
 
-## Introduction
-背景
-地理情報システム（GIS）は、災害管理、都市計画、交通管理、農業、環境保護など、多くの分野で重要な役割を果たしている。特に、3次元空間情報は複雑な地形の分析や都市部での詳細な地図生成で重宝される。しかし、現実的な制約として、多くのGISは高コストであり、またオフラインでの利用が難しいという課題がある。本研究は、Raspberry Piという低コストのプラットフォームを使用し、UNVTを活用して効率的な3次元地理情報システムを構築することを目的としている。
+---
 
-目的
-Raspberry Pi上で動作する3次元空間インデックスライブラリを構築し、低コストでの地理空間データ管理を実現する。
-3次元ボクセルにユニークIDを生成し、データの正確な位置特定と管理を可能にする。
-オフライン環境での実用性を高め、発展途上地域や災害時の応急対応における応用を目指す。
-新規性
-オフライン環境での地理空間データ管理: Raspberry Piを用いて、インターネット接続が不安定な環境でも高精度な地理情報を提供。
-3次元ボクセルのユニークID生成: 3次元空間データの正確な管理とクエリを実現する新しいID生成アルゴリズムを導入。
-統合された多層技術アプローチ: UNVT、GeoPandas、Scipy、SQLiteを組み合わせた統合的アプローチによるシステム構築。
-このプロジェクトの新規性は、3次元空間ボクセルに紐づくユニークID（3次元空間ID）、Raspberry Pi（UNVT-portal）という低コストなハードウェアを利用することで、オフライン環境でも緯度経度に高さ情報を加えた高精度な地理情報処理を可能にできる点だ。3次元空間の基盤データを整備することは、エアモビリティや次世代ドローンなど広範な応用可能性を持ち、社会的な影響も大きい。
+# **3Dボクセルデータ管理と検索APIの構築**
+**2024年度ゼミ論 最終発表用**
 
-## Methods
-使用するツールとその機能
-1. United Nations Vector Tile Toolkit (UNVT)
-機能: 地理空間データをベクトルタイルに変換し、オフライン環境でもデータを効率的に提供。ベクトルタイルは、データ量を抑えながら高い精度で地理情報を表示できる。
-用途: ベクトルタイル生成、データの軽量化と最適化、オフライン地図の提供。
-2. GeoPandas
-機能: Pythonで地理空間データを操作し、データ解析や可視化をサポート。
-用途: 地理空間データの前処理、解析、データフレーム形式での操作。
-3. Scipy（cKDTree）
-機能: 効率的な空間検索を可能にするデータ構造であるk-d treeを提供。
-用途: 空間インデックスの構築とクエリ処理、近傍探索。
-4. Raspberry Pi
-機能: 小型コンピュータで、地理情報処理とオフライン地図システムのプラットフォームとして使用。
-用途: 地図のローカル表示、GPSデータの取得と処理。
-5. GPSモジュール
-機能: リアルタイムでの位置情報を取得し、Raspberry Piでのデータ処理に利用。
-用途: 現在地の特定、3D空間ボクセルの位置決定。
-6. SQLite
-機能: 軽量のSQLデータベースエンジンで、地理データのローカルストレージに利用。
-用途: データベースの構築と管理、空間データのクエリ処理。
-7. Node.js/NPM
-機能: JavaScriptランタイム環境で、UNVTのインストールとタイル提供に使用。
-用途: UNVTのインストールとサーバーの立ち上げ。
+**青山学院大学 地球社会共生学部**  
+**佐藤 愛妃 / Aki Sato**  
+**指導教員: 古橋大地 教授**  
 
-## Results
-本プロジェクトにより、Raspberry Pi上で効率的な3次元空間インデックスライブラリを構築することができるようになる。これにより、オフライン環境でも高精度な地理情報の管理とクエリが可能になる。
-3次元ボクセルにユニークIDを生成することにより、正確な位置特定とデータ管理が実現できる。
-GPSモジュールとの統合により、リアルタイムの地理空間データの収集と可視化が可能になる。
+©︎Furuhashi Laboratory/Aki Sato, CC BY 4.0
 
-## Discussion
-### 利点
-低コストでの実装: Raspberry Piの使用により、低予算で高性能な地理情報システムを構築できる。
-オフライン機能: インターネットが利用できない環境でも、地理空間データを提供できる点が大きなメリットになる。
-拡張性と応用範囲: 教育現場、災害対応、発展途上地域での活用が期待できる。
-### 制限
-ハードウェア制約: Raspberry Piの性能により、非常に大規模なデータセットではパフォーマンスが制限される可能性がある。
-データ精度: GPSデータの精度が環境によって変動し、位置情報の正確性に影響を与える可能性がある。
+---
 
-## Conclusion
-United Nations Vector Tile Toolkitを活用して、Raspberry Pi上で動作する3次元空間インデックスライブラリの構築を目指す。このシステムは、低コストでありながら高性能で、オフライン環境での地理情報提供を可能にする。災害対応、発展途上地域での利用、教育現場での実践など、多岐にわたる応用が期待できる。さらに、データ精度の向上とシステムの最適化により、より多くの実用的なニーズに応えることができる。
+## **Abstract**
+本プロジェクトでは、**標高データを基に3Dボクセルを生成し、それぞれにユニークなハッシュIDを付与** することで、**3D空間情報を効率的に管理・検索可能なシステムを構築** した。  
+また、生成したデータを **GeoJSONおよび辞書データ（JSON）形式で保存** し、FastAPI を用いて **ローカル環境での検索APIを実装** した。  
+
+このシステムにより、**特定の座標（X, Y, Z）に対応するボクセルIDを検索** したり、既存のボクセルデータから**最も近いボクセルを取得** することが可能となる。
+
+---
+
+## **Introduction**
+### **背景**
+- **3D GIS（地理情報システム）** の活用は、都市計画、環境管理、災害対策など多くの分野で注目されている。
+- しかし、3Dデータは処理が重く、**検索や管理が難しい** という課題がある。
+- **標高データから3Dボクセルを生成し、ハッシュIDで管理することで、データの効率的な検索と管理を可能にする**。
+
+### **目的**
+- **標高データを基にした3Dボクセルを生成**
+- **ボクセルにユニークID（ハッシュ値）を付与**
+- **GeoJSONおよびJSON形式でデータを保存**
+- **FastAPIを用いてローカルでボクセルを検索できるAPIを構築**
+
+---
+
+## **Methods**
+### **手順**
+1. **標高データの取得と前処理**
+2. **250m×250m×250mの3Dボクセルを作成**
+3. **各ボクセルにハッシュIDを生成**
+4. **GeoJSONとJSONの2種類のデータを保存**
+5. **FastAPIでボクセル検索APIを構築**
+6. **ローカル環境でAPIをテスト**
+
+---
+
+## **Results**
+### **① 3Dボクセルデータの生成**
+#### **1. 標高データの前処理**
+- 標高データを `5mメッシュ` で取得
+- **250mごとのグリッド** に分割し、平均標高を計算
+- **標高範囲に応じてZ方向のボクセルを作成**
+
+```python
+import numpy as np
+
+# 3Dボクセルのサイズ
+voxel_size = 250  
+
+# X, Y の範囲（250mごとに区切る）
+x_range = np.arange(0, x_length, voxel_size)
+y_range = np.arange(0, y_length, voxel_size)
+
+# 標高データの最小値と最大値を取得
+min_elevation = np.floor(np.nanmin(elevation_data) / voxel_size) * voxel_size
+max_elevation = np.ceil(np.nanmax(elevation_data) / voxel_size) * voxel_size
+
+# Z方向のボクセル範囲（標高データの範囲を250mごとに区切る）
+z_range = np.arange(min_elevation, max_elevation + voxel_size, voxel_size)
+
+# 3Dボクセルのリスト
+voxel_data = []
+
+for x in x_range:
+    for y in y_range:
+        z_avg = np.nanmean(elevation_data[int(y/5):int((y+voxel_size)/5), int(x/5):int((x+voxel_size)/5)])
+        for z in np.arange(z_avg, z_avg + voxel_size, voxel_size):
+            voxel_data.append((x, y, z, voxel_size))
+```
+✅ **この処理により、XYZの座標ごとに3Dボクセルを作成**
+
+#### **2. ボクセルにユニークIDを付与**
+```python
+import hashlib
+
+def generate_voxel_id(x, y, z):
+    """X, Y, Z からユニークなハッシュIDを生成"""
+    hash_part = hashlib.md5(f"{x}_{y}_{z}".encode()).hexdigest()[:5]
+    return f"{x}_{y}_{z}_{hash_part}"
+```
+
+✅ **各ボクセルに `X_Y_Z_ハッシュ` 形式のIDを付与**
+
+---
+
+### **② データの保存**
+#### **GeoJSONとして保存（QGIS用）**
+```python
+import json
+
+geojson_data = {
+    "type": "FeatureCollection",
+    "features": []
+}
+
+for x, y, z, size in voxel_data:
+    voxel_id = generate_voxel_id(x, y, z)
+    feature = {
+        "type": "Feature",
+        "properties": {"Voxel_ID": voxel_id, "X": x, "Y": y, "Z": z, "Size": size},
+        "geometry": {"type": "Point", "coordinates": [x, y, z]}
+    }
+    geojson_data["features"].append(feature)
+
+with open("3d_voxel_data_with_id.geojson", "w") as f:
+    json.dump(geojson_data, f, indent=4)
+```
+
+#### **辞書データ（API用）**
+```python
+voxel_dict = {generate_voxel_id(x, y, z): {"X": x, "Y": y, "Z": z, "Size": size} for x, y, z, size in voxel_data}
+
+with open("voxel_dict.json", "w") as f:
+    json.dump(voxel_dict, f, indent=4)
+```
+
+✅ **この2つの形式でデータを保存し、QGISやAPIで利用可能に**
+
+---
+
+### **③ FastAPIを用いた検索API**
+```python
+from fastapi import FastAPI
+import json
+
+app = FastAPI()
+
+with open("voxel_dict.json", "r", encoding="utf-8") as f:
+    voxel_dict = json.load(f)
+
+@app.get("/voxel/{voxel_id}")
+def get_voxel(voxel_id: str):
+    return voxel_dict.get(voxel_id, {"error": "Voxel ID not found"})
+
+@app.get("/search/")
+def search_voxel(x: int, y: int, z: float):
+    for voxel_id, data in voxel_dict.items():
+        if data["X"] == x and data["Y"] == y and data["Z"] == z:
+            return {"Voxel_ID": voxel_id, "Data": data}
+    return {"error": "No matching voxel found"}
+```
+
+---
+
+## **Discussion**
+### **苦労した点**
+❌ **QGISでの3Dボクセル可視化が困難** → **別の可視化ツールを検討**  
+❌ **ボクセルのZ座標の間隔が乱れる** → **標高データの範囲を一定に修正**  
+❌ **検索APIのパフォーマンスが低下** → **辞書データを使用し、高速化**
+
+### **今後の課題**
+⚡ **SQLiteと統合して大規模データ対応**  
+⚡ **Raspberry Piでオフライン検索を実装**  
+⚡ **Webベースの可視化ツールを開発**
+
+---
+
+## **Conclusion**
+- **標高データを基に3Dボクセルを生成し、ハッシュIDを付与**
+- **GeoJSON・JSON形式でデータを保存し、QGISやAPIで利用可能に**
+- **FastAPIでローカル検索APIを構築**
+- **今後、Raspberry Piへの導入を検討**
+
+---
+
+🚀 **次のステップ → SQLiteとRaspberry Piへの展開！**
+
 
 # 参考文献
 - **タイトル**: *An Efficient Method for Offline Geospatial Data Processing Using Vector Tiles*

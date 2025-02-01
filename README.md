@@ -73,7 +73,62 @@
    import trimesh
    print("trimesh successfully imported!")
 
-  
+   import json
+   import numpy as np
+   import trimesh
+
+   # ✅ Google Drive をマウント
+   from google.colab import drive
+   drive.mount('/content/drive')
+
+   # ✅ GeoJSON ファイルのパス
+   geojson_path = "/content/drive/My Drive/Colab Notebooks/3d_voxel_data_with_id.geojson"
+   stl_path = "/content/drive/My Drive/Colab Notebooks/3d_voxel_mesh.stl"
+
+   # ✅ GeoJSON を読み込む
+   with open(geojson_path, "r", encoding="utf-8") as f:
+    geojson_data = json.load(f)
+
+   # ✅ ボクセルデータを取得
+   voxels = []
+
+   for feature in geojson_data["features"]:
+    x, y, z = feature["geometry"]["coordinates"]
+    size = feature["properties"]["Size"]
+
+    # 立方体（ボクセル）の8頂点
+    cube_vertices = np.array([
+        [x, y, z],
+        [x + size, y, z],
+        [x + size, y + size, z],
+        [x, y + size, z],
+        [x, y, z + size],
+        [x + size, y, z + size],
+        [x + size, y + size, z + size],
+        [x, y + size, z + size]
+    ])
+
+    # 立方体の6面（三角形2つで構成）
+    cube_faces = np.array([
+        [0, 1, 2], [0, 2, 3],  # 底面
+        [4, 5, 6], [4, 6, 7],  # 上面
+        [0, 1, 5], [0, 5, 4],  # 前面
+        [2, 3, 7], [2, 7, 6],  # 背面
+        [1, 2, 6], [1, 6, 5],  # 右側
+        [3, 0, 4], [3, 4, 7]   # 左側
+    ])
+
+    # 1つのボクセルを作成
+    voxels.append(trimesh.Trimesh(vertices=cube_vertices, faces=cube_faces))
+
+   # ✅ すべてのボクセルを統合
+   mesh = trimesh.util.concatenate(voxels)
+
+    # ✅ STL ファイルとして保存
+   mesh.export(stl_path)
+
+   print(f"✅ 3Dボクセルデータ（STL）を {stl_path} に保存しました！")
+
 
    
    ```

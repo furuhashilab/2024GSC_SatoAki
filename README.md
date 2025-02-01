@@ -63,6 +63,21 @@
 
 6. **ローカル環境でAPIをテスト**
 
+7. **STL出力**
+   ```
+   pip install trimesh
+   !pip install trimesh
+   pip install numpy
+   pip install numpy
+   
+   import trimesh
+   print("trimesh successfully imported!")
+
+  
+
+   
+   ```
+
 
 ---
 

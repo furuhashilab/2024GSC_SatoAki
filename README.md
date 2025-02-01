@@ -56,20 +56,24 @@ Google Colaboratry：https://colab.research.google.com/drive/1rKQu8nY0WiSGas41dE
 1. **標高データの取得と前処理**
 ![スクリーンショット 2025-02-01 121930](https://github.com/user-attachments/assets/e0c0b06c-9271-4f8c-908f-6fff8df4a8c5)
 
-2. **250m×250m×250mのボクセルを作成**
+以下のプラグインを使用し、QGIS上で標高タイルをGeoTIFFに変換しました。zoomレベル14で取得しました。
+MIERUNE. (2023). QGISの3Dビューを活用してみよう [https://www.mierune.co.jp/news/posts/1286?lang=ja]. MIERUNE Blog. Retrieved from https://www.mierune.co.jp/news/posts/1286?lang=ja
+
+3. **250m×250m×250mのボクセルを作成**
 ![スクリーンショット 2025-02-01 143646](https://github.com/user-attachments/assets/812c11d0-4116-48cf-91e4-68204d8b1da0)
+途中、5m*5mメッシュの予定でしたが、10m*10mになってしまっていたので、コード使って5mにしました。
 
 
-4. **各ボクセルにハッシュIDを生成**
+5. **各ボクセルにハッシュIDを生成**
   
 
-5. **GeoJSONとJSONの2種類のデータを保存**
+6. **GeoJSONとJSONの2種類のデータを保存**
 
-6. **FastAPIでボクセル検索APIを構築**
+7. **FastAPIでボクセル検索APIを構築**
 
-7. **ローカル環境でAPIをテスト**
+8. **ローカル環境でAPIをテスト**
 
-8. **3Dボクセル、STL出力**
+9. **3Dボクセル、STL出力**
  ```
    pip install trimesh
    !pip install trimesh
@@ -300,8 +304,15 @@ def search_voxel(x: int, y: int, z: float):
 - **ジャーナル**: *Computers, Environment and Urban Systems*
 - **DOI**: [10.1016/j.compenvurbsys.2020.101469](https://doi.org/10.1016/j.compenvurbsys.2020.101469)
 
+-タイトル: 記事タイトル → QGISの3Dビューを活用してみよう
+- 著者名: 団体名または個人名 → MIERUNE
+- 発行年: 2023年（記事の日付に基づく）
+- 情報種別: [ウェブページ] を明記
+- 出典: WebページURLを Retrieved from で記載
+
 ### プロジェクト
 
 1. **OSGeo Live**: [公式サイト](https://live.osgeo.org/)
 2. **OpenMapKit**: [GitHubリポジトリ](https://github.com/AmericanRedCross/OpenMapKit)
 3. **PLATEAUのための空間ID生成ツール**:[PLATEAUのための空間ID生成ツール](https://github.com/Project-PLATEAU/PLATEAU-generator-for-spatialid)
+4. MIERUNE. (2023). QGISの3Dビューを活用してみよう [https://www.mierune.co.jp/news/posts/1286?lang=ja]. MIERUNE Blog. 

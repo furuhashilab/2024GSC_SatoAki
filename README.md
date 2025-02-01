@@ -56,17 +56,20 @@ Google Colaboratry：https://colab.research.google.com/drive/1rKQu8nY0WiSGas41dE
 1. **標高データの取得と前処理**
 ![スクリーンショット 2025-02-01 121930](https://github.com/user-attachments/assets/e0c0b06c-9271-4f8c-908f-6fff8df4a8c5)
 
-2. **250m×250m×250mの3Dボクセルを作成**
+2. **250m×250m×250mのボクセルを作成**
+![スクリーンショット 2025-02-01 143646](https://github.com/user-attachments/assets/812c11d0-4116-48cf-91e4-68204d8b1da0)
 
-3. **各ボクセルにハッシュIDを生成**
 
-4. **GeoJSONとJSONの2種類のデータを保存**
+4. **各ボクセルにハッシュIDを生成**
+  
 
-5. **FastAPIでボクセル検索APIを構築**
+5. **GeoJSONとJSONの2種類のデータを保存**
 
-6. **ローカル環境でAPIをテスト**
+6. **FastAPIでボクセル検索APIを構築**
 
-7. **STL出力**
+7. **ローカル環境でAPIをテスト**
+
+8. **3Dボクセル、STL出力**
  ```
    pip install trimesh
    !pip install trimesh
@@ -144,7 +147,7 @@ Google Colaboratry：https://colab.research.google.com/drive/1rKQu8nY0WiSGas41dE
 ---
 
 ## **Results**
-### **① 3Dボクセルデータの生成**
+### **① 2.5D&3Dボクセルデータの生成**
 #### **1. 標高データの前処理**
 - 標高データを `5mメッシュ` で取得
 - **250mごとのグリッド** に分割し、平均標高を計算
@@ -179,6 +182,7 @@ for x in x_range:
 ✅ **この処理により、XYZの座標ごとに3Dボクセルを作成**
 
 #### **2. ボクセルにユニークIDを付与**
+1.X 2.Y 3.z 4.size & 5桁のハッシュ値 
 ```python
 import hashlib
 
@@ -248,6 +252,16 @@ def search_voxel(x: int, y: int, z: float):
             return {"Voxel_ID": voxel_id, "Data": data}
     return {"error": "No matching voxel found"}
 ```
+![スクリーンショット 2025-02-01 113943](https://github.com/user-attachments/assets/8ffa5e80-1a11-4e4d-87fd-5c560650e1d6)
+![スクリーンショット 2025-02-01 113954](https://github.com/user-attachments/assets/9c0b8cfd-43eb-4385-9746-e435a22fe12d)
+![スクリーンショット 2025-02-01 114002](https://github.com/user-attachments/assets/2fccf096-8a9b-492a-8704-c79216d3b24d)
+![スクリーンショット 2025-02-01 114022](https://github.com/user-attachments/assets/8876d501-2a55-48d5-855c-505a33a59fbd)
+![スクリーンショット 2025-02-01 114032](https://github.com/user-attachments/assets/587049b2-f5d1-47e5-a097-0caad20c10ae)
+![スクリーンショット 2025-02-01 114049](https://github.com/user-attachments/assets/a9f22b3e-f7d4-4777-9e60-8ddd50e8abc1)
+![スクリーンショット 2025-02-01 114059](https://github.com/user-attachments/assets/80aaf188-a246-4267-ae4b-638449c497d3)
+
+
+
 
 ---
 

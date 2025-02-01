@@ -147,6 +147,8 @@ MIERUNE. (2023). QGISの3Dビューを活用してみよう [https://www.mierune
    ```
 ![スクリーンショット 2025-02-01 142754](https://github.com/user-attachments/assets/d9f5fde7-4788-464a-a03c-a87c5d29428c)
 
+![スクリーンショット 2025-02-01 171025](https://github.com/user-attachments/assets/b0f68b5f-699a-4a46-84a4-113e1bd82571)
+![スクリーンショット 2025-02-01 171050](https://github.com/user-attachments/assets/b09e6a3f-d367-4cab-8022-5e9283dd7cb9)
 
 ---
 
@@ -231,7 +233,7 @@ with open("voxel_dict.json", "w") as f:
     json.dump(voxel_dict, f, indent=4)
 ```
 
-✅ **この2つの形式でデータを保存し、QGISやAPIで利用可能に**
+
 
 ---
 

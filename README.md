@@ -317,9 +317,7 @@ ax.set_ylabel('Y (m)')
 ax.set_zlabel('Height (m)')
 
 plt.show()
----
-
----
+```
 
 ## **Discussion**
 ### **苦労した点**
@@ -332,7 +330,6 @@ plt.show()
 ⚡ **Raspberry Piでオフライン検索を実装**  
 ⚡ **Webベースの可視化ツールを開発**
 
----
 
 ## **Conclusion**
 - **標高データを基に3Dボクセルを生成し、ハッシュIDを付与**
@@ -340,7 +337,6 @@ plt.show()
 - **FastAPIでローカル検索APIを構築**
 - **今後、Raspberry Piへの導入を検討**
 
----
 
 🚀 **次のステップ → Raspberry Piへの展開！**
 

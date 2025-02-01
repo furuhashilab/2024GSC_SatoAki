@@ -59,21 +59,21 @@ Google Colaboratry：https://colab.research.google.com/drive/1rKQu8nY0WiSGas41dE
 以下のプラグインを使用し、QGIS上で標高タイルをGeoTIFFに変換しました。zoomレベル14で取得しました。
 MIERUNE. (2023). QGISの3Dビューを活用してみよう [https://www.mierune.co.jp/news/posts/1286?lang=ja]. MIERUNE Blog. Retrieved from https://www.mierune.co.jp/news/posts/1286?lang=ja
 
-3. **250m×250m×250mのボクセルを作成**
+2. **250m×250m×250mのボクセルを作成**
 ![スクリーンショット 2025-02-01 143646](https://github.com/user-attachments/assets/812c11d0-4116-48cf-91e4-68204d8b1da0)
 途中、5m*5mメッシュの予定でしたが、10m*10mになってしまっていたので、コード使って5mにしました。
 
 
-5. **各ボクセルにハッシュIDを生成**
+3. **各ボクセルにハッシュIDを生成**
   
 
-6. **GeoJSONとJSONの2種類のデータを保存**
+4. **GeoJSONとJSONの2種類のデータを保存**
 
-7. **FastAPIでボクセル検索APIを構築**
+5. **FastAPIでボクセル検索APIを構築**
 
-8. **ローカル環境でAPIをテスト**
+6. **ローカル環境でAPIをテスト**
 
-9. **3Dボクセル、STL出力**
+7. **3Dボクセル、STL出力**
  ```
    pip install trimesh
    !pip install trimesh

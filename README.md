@@ -281,7 +281,7 @@ def search_voxel(x: int, y: int, z: float):
 ![スクリーンショット 2025-02-01 114049](https://github.com/user-attachments/assets/a9f22b3e-f7d4-4777-9e60-8ddd50e8abc1)
 ![スクリーンショット 2025-02-01 114059](https://github.com/user-attachments/assets/80aaf188-a246-4267-ae4b-638449c497d3)
 
-1. 3Dボクセルデータ（GeoJSON）: 3d_voxel_data_with_id.geojson
+1. ボクセルデータ（GeoJSON）: 3d_voxel_data_with_id.geojson
    形式: GeoJSON（ポイントデータ or 3Dポイント）
    QGISでの動作:ベクターレイヤとして追加できる（レイヤ → レイヤを追加 → ベクタレイヤを追加）。
    3Dビューでシンボルを変更して可視化（立方体、球体など）。

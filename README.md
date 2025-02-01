@@ -50,6 +50,9 @@
 
 ## **Methods**
 ### **手順**
+使用言語：Python
+Google Colaboratry：https://colab.research.google.com/drive/1rKQu8nY0WiSGas41dEnTdTjMFGRGshDk?usp=sharing
+
 1. **標高データの取得と前処理**
 ![スクリーンショット 2025-02-01 121930](https://github.com/user-attachments/assets/e0c0b06c-9271-4f8c-908f-6fff8df4a8c5)
 

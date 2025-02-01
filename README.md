@@ -266,6 +266,32 @@ def search_voxel(x: int, y: int, z: float):
 ![スクリーンショット 2025-02-01 114049](https://github.com/user-attachments/assets/a9f22b3e-f7d4-4777-9e60-8ddd50e8abc1)
 ![スクリーンショット 2025-02-01 114059](https://github.com/user-attachments/assets/80aaf188-a246-4267-ae4b-638449c497d3)
 
+1. 3Dボクセルデータ（GeoJSON）: 3d_voxel_data_with_id.geojson
+   形式: GeoJSON（ポイントデータ or 3Dポイント）
+   QGISでの動作:ベクターレイヤとして追加できる（レイヤ → レイヤを追加 → ベクタレイヤを追加）。
+   3Dビューでシンボルを変更して可視化（立方体、球体など）。
+   ポリゴンデータではないため、メッシュ表示には変換が必要。
+   
+2. PolygonZ（3Dポリゴン）: 3d_voxel_data_polygonZ.geojson
+   形式: GeoJSON（3Dポリゴン、PolygonZ）
+   QGISでの動作:ベクターレイヤとして追加可能（3Dポリゴンを含む場合、3Dビューに対応）。
+   「3Dビュー」タブで立体構造として表示できる。
+   属性テーブルで各ポリゴンの高さやIDを確認可能。
+
+3. ElevationTile4JP（標高タイル）: ElevationTile4JP-1.1.zip
+   形式: ZIP圧縮（中にラスターデータが格納されている可能性あり）
+   QGISでの動作:直接ZIPのまま読み込むのは不可。
+   解凍後、GeoTIFF（.tif） や XYZタイルが含まれていればインポート可能。
+   「ラスタレイヤを追加」でインポートし、標高データとして利用可能。
+
+4. Voxel辞書データ（JSON）: voxel_dict.ver2.json
+   形式: JSON（辞書データ、構造化データ）
+   QGISでの動作:QGISの通常のレイヤとしては追加不可（直接可視化できるフォーマットではない）。
+   Pythonスクリプトを使ってQGISにデータとしてインポートすることは可能（PyQGIS）。
+   APIやデータ検索に利用するバックエンド向けのデータ。
+
+5. 3Dvoxelデータ：STL（メッシュ）: 3d_voxel_mesh.stl
+   3Dモデル、3Dプリント、MeshLabやBlender
 
 
 

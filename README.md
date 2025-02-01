@@ -64,7 +64,7 @@
 6. **ローカル環境でAPIをテスト**
 
 7. **STL出力**
-   ```
+ ```
    pip install trimesh
    !pip install trimesh
    pip install numpy
@@ -77,6 +77,9 @@
    import numpy as np
    import trimesh
 
+```
+
+ ```
    # ✅ Google Drive をマウント
    from google.colab import drive
    drive.mount('/content/drive')
@@ -132,6 +135,7 @@
 
    
    ```
+![スクリーンショット 2025-02-01 142754](https://github.com/user-attachments/assets/d9f5fde7-4788-464a-a03c-a87c5d29428c)
 
 
 ---

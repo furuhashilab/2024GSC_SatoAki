@@ -64,16 +64,31 @@ MIERUNE. (2023). QGISの3Dビューを活用してみよう [https://www.mierune
 途中、5m*5mメッシュの予定でしたが、10m*10mになってしまっていたので、コード使って5mにしました。
 
 3. **各ボクセルにハッシュIDを生成**
-4. **GeoJSONとJSONの2種類のデータを保存**
+
+ ```
+  import hashlib
+
+def generate_voxel_id(x, y, z):
+    """X, Y, Z からユニークなハッシュIDを生成（冗長性あり）"""
+    hash_part = hashlib.md5(f"{x}_{y}_{z}".encode()).hexdigest()[:5]  # 5桁のハッシュ
+    return f"{x}_{y}_{z}_{hash_part}"  # "X_Y_Z_ハッシュ" の形式
+
+# テスト
+print(generate_voxel_id(500, 500, 1250))
+# 出力例: "500_500_1250_7a3fb"
+
+
+5. . **GeoJSONとJSONの2種類のデータを保存**
 ![スクリーンショット 2025-02-01 182050](https://github.com/user-attachments/assets/0260fb08-64af-4728-a7dc-33023c1bac24)
 
-5. **FastAPIでボクセル検索APIを構築**
+6. **FastAPIでボクセル検索APIを構築**
   ![スクリーンショット 2025-02-01 182556](https://github.com/user-attachments/assets/27359e0d-6157-45ac-bf0d-bc509994ad6f)
 
-6. **ローカル環境でAPIをテスト**
+7. **ローカル環境でAPIをテスト**
 ![スクリーンショット 2025-02-01 113943](https://github.com/user-attachments/assets/abe7646a-654d-4e87-98af-51033c64c702)
+```
 
-7. **3Dボクセル、STL出力**
+8. **3Dボクセル、STL出力**
  ```
    pip install trimesh
    !pip install trimesh

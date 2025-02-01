@@ -177,7 +177,7 @@ print(generate_voxel_id(500, 500, 1250))
 ```python
 import numpy as np
 
-# 3Dボクセルのサイズ
+# ボクセルのサイズ
 voxel_size = 250  
 
 # X, Y の範囲（250mごとに区切る）
